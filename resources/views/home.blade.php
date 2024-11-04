@@ -6,17 +6,16 @@
 <div class="container">
     <div class="row">
         @foreach($photos as $photo)
-        <div class="col-md-3 mb-4"> 
-            <div class="card">
+        <div class="col-md-3 mb-4">
+            <div class="card fixed-card">
                 <img src="{{ asset('storage/' . $photo->lokasiFile) }}" 
                     alt="{{ $photo->judulFoto }}" 
-                    class="card-img-top" 
-                    style="height: 200px; object-fit: cover; border-radius: 10px 10px 0 0;">
+                    class="card-img-top fixed-image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $photo->judulFoto }}</h5>
-                    <p class="card-text">{{ Str::limit($photo->deskripsiFoto, 50) }}</p>
-                    <p class="card-text">
-                        <small class="text-muted">Uploaded by {{ $photo->user->username }} on {{ $photo->created_at->format('d M Y') }}</small>
+                    <h5 class="card-title text-center">{{ $photo->judulFoto }}</h5>
+                    <p class="card-text text-center">{{ Str::limit($photo->deskripsiFoto, 50) }}</p>
+                    <p class="card-text text-center">
+                        <small class="text-muted"> by {{ $photo->user->username }} on {{ $photo->created_at->format('d M Y') }}</small>
                     </p>
                     <div class="d-flex justify-content-between align-items-center">
                         <form action="{{ route('photos.like', $photo->fotoID) }}" method="POST" style="display: inline;">
