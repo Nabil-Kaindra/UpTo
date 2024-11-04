@@ -21,7 +21,7 @@
             <td>
                 <img src="{{ asset('storage/' . $photo->lokasiFile) }}" 
                     alt="{{ $photo->judulFoto }}"
-                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover;" >
+                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover; object-fit: cover; border-radius: 10%" >
             </td>
 
             <td>
