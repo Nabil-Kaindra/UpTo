@@ -7,8 +7,15 @@ table {
 th, td {
     border: 1px solid #ff0000;
     padding: 8px;
+    background-color: white;
 }
 
 th {
     background-color: #ffea00;
 }
+
+body {
+    background-image: url(''); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;}
