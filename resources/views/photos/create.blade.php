@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h2  style="text-align: center;">Upload Foto Baru</h2>
+<h2  style="text-align: center; margin-top: 20px;">Upload Foto Baru</h2>
 <form action="{{ route('photos.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <table style="border: none;">

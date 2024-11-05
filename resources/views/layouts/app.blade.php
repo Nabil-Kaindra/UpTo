@@ -27,7 +27,7 @@
 
             <form class="d-flex mx-auto" action="{{ route('photos.search') }}" method="GET" style="width: 50%;">
                 <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
 
             <ul class="navbar-nav ms-auto">
