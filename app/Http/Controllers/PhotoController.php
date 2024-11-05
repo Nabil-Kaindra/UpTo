@@ -9,6 +9,7 @@ use App\Models\LikePhoto;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 class PhotoController extends Controller {
 
@@ -95,6 +96,21 @@ class PhotoController extends Controller {
 
         return redirect()->route('albums.photos', $photo->albumID);
     }
+
+    public function search(Request $request) {
+        $query = $request->input('query');
+
+        // Validate the query
+        $request->validate([
+            'query' => 'required|string|max:255',
+        ]);
+
+        // Store the query in the session for later use
+        Session::flash('search_query', $query);
+
+        return redirect()->route('home');
+    }
+
 
     public function like(Photo $photo) {
         if ($photo->isLikedByAuthUser()){

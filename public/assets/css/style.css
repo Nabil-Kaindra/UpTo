@@ -1,4 +1,4 @@
-/* Mengatur Table */
+/* Table Style */
 table {
     border-collapse: collapse;
     margin: 20px auto;
@@ -23,7 +23,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Nav Bar */
+/* Nav Bar Style */
 .nav-bar {
     display: flex;
     align-items: center;
@@ -56,7 +56,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: scale(1.1);
 }
 
 .card-img-top {
@@ -73,12 +73,12 @@ body {
 
 .card-text {
     color: #666;
-    text-align: center; /* Pusatkan teks deskripsi */
+    text-align: center; 
 }
 
 .fixed-card {
     width: 100%;
-    min-height: 450px; /* Sesuaikan tinggi minimal */
+    min-height: 450px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -111,4 +111,8 @@ body {
     .card-img-top {
         height: 200px; 
     }
+}
+
+.pagination {
+    justify-content: center;
 }
