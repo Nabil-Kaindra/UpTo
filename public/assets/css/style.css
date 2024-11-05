@@ -1,3 +1,4 @@
+/* Mengatur Table */
 table {
     border-collapse: collapse;
     margin: 20px auto;
@@ -19,77 +20,95 @@ body {
     background-image: url(''); 
     background-size: cover; 
     background-repeat: no-repeat;
-    background-attachment: fixed;}
+    background-attachment: fixed;
+}
 
-    .nav-bar {
-        display: flex;
-        align-items: center;
-        background-color: #f8f9fa; 
-        padding: 10px;
-    }
+/* Nav Bar */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
 
-    .nav-bar a {
-        text-decoration: none;
-        color: #007bff;
-        font-weight: bold;
-        margin-right: 15px;
-    }
+.nav-bar a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-right: 15px;
+}
 
-    .nav-bar a:hover {
-        color: #0056b3;
-    }
+.nav-bar a:hover {
+    color: #0056b3;
+}
 
-    .nav-bar .profile-link {
-        margin-left: auto;
-    }
-    
+.nav-bar .profile-link {
+    margin-left: auto;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+    width: 100%; /* Responsif untuk layar kecil */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-radius: 15px 15px 0 0;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.card-text {
+    color: #666;
+    text-align: center; /* Pusatkan teks deskripsi */
+}
+
+.fixed-card {
+    width: 100%;
+    min-height: 450px; /* Sesuaikan tinggi minimal */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fixed-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
     .card {
-        border-radius: 15px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        background-color: white;
+        margin-bottom: 20px; 
     }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    .card-img-top {
-        border-radius: 15px 15px 0 0;
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .card-title {
-        font-weight: bold;
-        color: #333;
-    }
-
-    .card-text {
-        color: #666;
-    }
-
     .fixed-card {
-        width: 100%;             
-        height: 450px;           
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
+        min-height: 400px;
     }
-    
-    .fixed-image {
-        width: 100%;             
-        height: 200px;           
-        object-fit: cover;       
+    .card-img-top {
+        height: 200px; 
     }
-    
-    .card-body {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    
+}
