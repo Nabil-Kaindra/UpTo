@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         return back()->withErrors([
             'username' => 'Username atau password salah.',
-        ]);
+        ])->with('error', 'Username atau password salah.');
     }
 
     public function showRegistrationForm() {

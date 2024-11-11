@@ -89,6 +89,11 @@
     <div class="login-container">
         <h2>Login</h2>
         <h3>DASHBOARD DOKUMENTASI KEGIATAN</h3>
+        @if (session('error'))
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                {{ session('error') }}
+            </div>
+        @endif
         <form action="{{ route('postLogin') }}" method="POST">
             @csrf
             <table>

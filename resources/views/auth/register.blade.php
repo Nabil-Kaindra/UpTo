@@ -27,7 +27,7 @@
         }
 
         /* Heading */
-        h2 {
+        h2, h3 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
@@ -92,6 +92,7 @@
 <body>
     <div class="register-container">
         <h2>Daftar Akun</h2>
+        <h3>DASHBOARD DOKUMENTASI KEGIATAN</h3>
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <table>
