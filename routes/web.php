@@ -9,11 +9,10 @@ use App\Http\Controllers\{
     ProfileController,
 };
 
-Route::redirect('/','/auth/login');
-Route::controller(AuthController::class)->group(function () {
-
-
+Route::get('/', function () {
+    return redirect()->route('home');
 });
+
 Route::controller(AuthController::class)->group(function () {
     Route::get('auth/login', 'showLoginForm')->name('login')->middleware('guest');
     Route::post('auth/login', 'postLogin')->name('postLogin');
@@ -24,15 +23,17 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('photos/search', [PhotoController::class, 'search'])->name('photos.search');
-Route::resource('albums', AlbumController::class);
-Route::resource('photos', PhotoController::class);
 
-Route::get('/albums/{album}/photos', [PhotoController::class, 'index'])->name('albums.photos');
 Route::post('photos/{photo}/like/', [PhotoController::class, 'like'])->name('photos.like');
 Route::get('/photos/{photo}/comments', [PhotoController::class, 'showComments'])->name('photos.comments');
 Route::post('/photos/{photo}/comments', [PhotoController::class, 'storeComment'])->name('photos.comment.store');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('photos', PhotoController::class);
+    
+    Route::resource('albums', AlbumController::class);
+    Route::get('/albums/{album}/photos', [PhotoController::class, 'index'])->name('albums.photos');
+
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 });

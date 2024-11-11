@@ -53,6 +53,12 @@ body {
     margin-left: auto;
 }
 
+.navbar-brand img {
+        max-height: 50px !important; 
+        width: auto !important;
+}
+
+
 /* Card Styles */
 .card {
     border-radius: 15px;
