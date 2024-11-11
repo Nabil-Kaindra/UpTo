@@ -102,9 +102,9 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align:center;">
-                        <!--<p>Belum punya akun?
+                        <p>Belum punya akun?
                             <a href="{{ route('register.form') }}">Daftar di sini</a>
-                        </p>-->
+                        </p>
                         <button type="submit">Login</button>
                     </td>
                 </tr>

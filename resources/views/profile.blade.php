@@ -50,24 +50,23 @@
                             border: 1px solid #ddd; border-radius: 4px;">
             </td>
         </tr>
+</form>
         <tr>
-            <td colspan="2" style="padding: 20px; text-align: center;">
-                <button type="submit" 
-                        style="background-color: #4A90E2; color: white; padding: 10px 20px; 
+            <td colspan="2" style="padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit"
+                                style="background-color: #f44336; color: white; padding: 7px 20px; 
+                                border: none; border-radius: 4px; cursor: pointer; 
+                                font-size: 16px;">Logout</button>
+                    </form>
+                    <button type="submit"
+                            style="background-color: #4A90E2; color: white; padding: 7px 20px; 
                             border: none; border-radius: 4px; cursor: pointer; 
                             font-size: 16px;">Simpan</button>
+                </div>
             </td>
         </tr>
-    </table>
-</form>
-
-<div style="text-align: center; margin-top: 10px;">
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit" 
-                style="background-color: #f44336; color: white; padding: 10px 20px; 
-                    border: none; border-radius: 4px; cursor: pointer; 
-                    font-size: 16px;">Logout</button>
-    </form>
-</div>
+</table>
 @endsection
