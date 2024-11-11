@@ -18,7 +18,7 @@ class HomeController extends Controller {
             
             $request->session()->forget('search_query');
         } else {
-            $photos = Photo::paginate(8);
+            $photos = Photo::paginate(16);
         }
 
         return view('home', compact('photos'));
