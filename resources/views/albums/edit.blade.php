@@ -13,19 +13,19 @@
             </div>
             <div class="mb-3">
                 <label for="lokasi" class="form-label">Lokasi Kegiatan</label>
-                <input type="text" class="form-control" name="lokasi" id="lokasi" value="{{ $album->lokasi }}" required>
+                <input type="text" class="form-control" name="lokasi" id="lokasi" value="{{ $album->lokasi }}" >
             </div>
             <div class="mb-3">
                 <label for="waktu" class="form-label">Jam Kegiatan</label>
-                <input type="time" class="form-control" name="waktu" id="waktu" value="{{ $album->waktu }}" required>
+                <input type="time" class="form-control" name="waktu" id="waktu" value="{{ $album->waktu }}" >
             </div>
             <div class="mb-3">
                 <label for="uraian" class="form-label">Uraian</label>
-                <input type="text" class="form-control" name="uraian" id="uraian" value="{{ $album->uraian }}" required>
+                <input type="text" class="form-control" name="uraian" id="uraian" value="{{ $album->uraian }}" >
             </div>
             <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi Album</label>
-                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required maxlength="150">{{ $album->deskripsi }}</textarea>
+                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"  maxlength="150">{{ $album->deskripsi }}</textarea>
                 <small class="form-text text-muted">Maksimum 150 karakter.</small>
             </div>
             <div class="text-end">
