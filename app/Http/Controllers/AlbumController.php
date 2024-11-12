@@ -80,10 +80,16 @@ class AlbumController extends Controller
         $request->validate([
             'namaAlbum' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:150',
+            'lokasi' => 'required|string|max:255',
+            'waktu' => 'required|date_format:H:i',
+            'uraian' => 'required|string|max:255',
         ]);
         $album->update([
             'namaAlbum' => $request->namaAlbum,
             'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'waktu' => $request->waktu,
+            'uraian' => $request->uraian,
         ]);
         return redirect()->route('albums.index');
     }

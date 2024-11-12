@@ -24,7 +24,7 @@
             <tr>
                 <td>
                     <label for="waktu">Jam Kegiatan</label>
-                </td>
+                </td>   
                 <td>
                     <input type="time" name="waktu" required>
                 </td>

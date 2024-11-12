@@ -16,6 +16,30 @@
             </tr>
             <tr>
                 <td>
+                    <label for="lokasi">Lokasi Kegiatan</label>
+                </td>
+                <td>
+                    <input type="text" name="lokasi" value="{{ $album->lokasi }}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="waktu">Jam Kegiatan</label>
+                </td>
+                <td>
+                    <input type="time" name="waktu" value="{{ $album->waktu }}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="uraian">Uraian</label>
+                </td>
+                <td>
+                    <input type="text" name="uraian" value="{{ $album->uraian }}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="deskripsi">Deskripsi Album</label>
                 </td>
                 <td>

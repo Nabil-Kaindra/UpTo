@@ -112,39 +112,4 @@ class PhotoController extends Controller {
     }
 
 
-    public function like(Photo $photo) {
-        if ($photo->isLikedByAuthUser()){
-
-            $photo->likes()->where('userID', Auth::user()->userID)->delete();
-        }else{
-
-            $photo->likes()->create([
-                'userID' => Auth::user()->userID,
-                'fotoID' => $photo->fotoID,
-                'tanggalLike' => now(),
-            ]);
-        }
-
-        return redirect()->route('home');
-    }
-
-    public function showComments(Photo $photo) {
-
-        $photo->load('comments.user');
-        return view('photos.comment', compact('photo'));
-    }
-
-    public function storeComment(Request $request, Photo $photo) {
-
-        $request->validate([
-            'isiKomentar' => 'required|string|max:200',
-        ]);
-
-        Comment::create([
-            'isiKomentar' => $request->isiKomentar,
-            'fotoID' => $photo->fotoID,
-            'userID' => Auth::id(),
-        ]);
-        return redirect()->route('photos.comments', $photo);
-    } 
 }
