@@ -15,6 +15,30 @@
             </tr>
             <tr>
                 <td>
+                    <label for="lokasi">Lokasi Kegiatan</label>
+                </td>
+                <td>
+                    <input type="text" name="lokasi" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="waktu">Jam Kegiatan</label>
+                </td>
+                <td>
+                    <input type="time" name="waktu" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="uraian">Uraian</label>
+                </td>
+                <td>
+                    <input type="text" name="uraian" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <label for="deskripsi">Deskripsi Album</label>
                 </td>
                 <td>

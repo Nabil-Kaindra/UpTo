@@ -10,7 +10,10 @@ class Album extends Model{
         'namaAlbum',
         'deskripsi',
         'tanggalDibuat',
-        'userID'
+        'userID',
+        'waktu',
+        'lokasi',
+        'uraian'
     ];
 
     public function user() {

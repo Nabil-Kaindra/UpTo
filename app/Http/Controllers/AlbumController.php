@@ -32,11 +32,17 @@ class AlbumController extends Controller
     {
         $request->validate([
             'namaAlbum' => 'required|string|max:255',
-            'deskripsi' => 'required|string|max:150',
+            'deskripsi' => 'required|string|max:255',
+            'lokasi' => 'required|string|max:255',
+            'waktu' => 'required|date_format:H:i',
+            'uraian' => 'required|string|max:255',
         ]);
         Album::create([
             'namaAlbum' => $request->namaAlbum,
             'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'waktu' => $request->waktu,
+            'uraian' => $request->uraian,
             'userID' => Auth::id(),
             'tanggalDibuat' => now(),
         ]);

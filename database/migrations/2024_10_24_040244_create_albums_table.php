@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id('albumID');
             $table->string('namaAlbum');
             $table->text('deskripsi')->nullable();
-            $table->date('tanggaDibuat');
+            $table->text('lokasi')->nullable();
+            $table->time('waktu');
+            $table->text('uraian');
+            $table->date('tanggalDibuat');
             $table->foreignId('userID')
                 ->constrained('users', 'userID')->onDelete('cascade');
             $table->timestamps();
