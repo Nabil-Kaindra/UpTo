@@ -1,57 +1,37 @@
 @extends('layouts.app')
 @section('content')
-<div style="margin: 20px;">
-    <h2  style="text-align: center;">Edit Album</h2>
-    <form action="{{ route('albums.update',$album->albumID) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <table>
-            <tr>
-                <td>
-                    <label for="namaAlbum">Nama Album</label>
-                </td>
-                <td>
-                    <input type="text" name="namaAlbum" value="{{ $album->namaAlbum }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="lokasi">Lokasi Kegiatan</label>
-                </td>
-                <td>
-                    <input type="text" name="lokasi" value="{{ $album->lokasi }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="waktu">Jam Kegiatan</label>
-                </td>
-                <td>
-                    <input type="time" name="waktu" value="{{ $album->waktu }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="uraian">Uraian</label>
-                </td>
-                <td>
-                    <input type="text" name="uraian" value="{{ $album->uraian }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="deskripsi">Deskripsi Album</label>
-                </td>
-                <td>
-                    <textarea name="deskripsi" maxlength="150">{{ $album->deskripsi }}</textarea>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: right;">
-                    <button type="submit">Update Album</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Album</h2>
+    <div class="card shadow-sm p-4">
+        <form action="{{ route('albums.update', $album->albumID) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="mb-3">
+                <label for="namaAlbum" class="form-label">Nama Album</label>
+                <input type="text" class="form-control" name="namaAlbum" id="namaAlbum" value="{{ $album->namaAlbum }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="lokasi" class="form-label">Lokasi Kegiatan</label>
+                <input type="text" class="form-control" name="lokasi" id="lokasi" value="{{ $album->lokasi }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="waktu" class="form-label">Jam Kegiatan</label>
+                <input type="time" class="form-control" name="waktu" id="waktu" value="{{ $album->waktu }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="uraian" class="form-label">Uraian</label>
+                <input type="text" class="form-control" name="uraian" id="uraian" value="{{ $album->uraian }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="deskripsi" class="form-label">Deskripsi Album</label>
+                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required maxlength="150">{{ $album->deskripsi }}</textarea>
+                <small class="form-text text-muted">Maksimum 150 karakter.</small>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Update Album</button>
+            </div>
+        </form>
+    </div>
 </div>
 @endsection

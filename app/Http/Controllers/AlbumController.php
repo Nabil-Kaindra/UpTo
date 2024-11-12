@@ -47,6 +47,7 @@ class AlbumController extends Controller
             'tanggalDibuat' => now(),
         ]);
         return redirect()->route('albums.index');
+
     }
 
     /**
@@ -76,7 +77,7 @@ class AlbumController extends Controller
         if ($album->userID !== Auth::id()) {
             abort(403, 'Unauthorized action.');
         }
-
+    
         $request->validate([
             'namaAlbum' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:150',
@@ -84,16 +85,23 @@ class AlbumController extends Controller
             'waktu' => 'required|date_format:H:i',
             'uraian' => 'required|string|max:255',
         ]);
-        $album->update([
-            'namaAlbum' => $request->namaAlbum,
-            'deskripsi' => $request->deskripsi,
-            'lokasi' => $request->lokasi,
-            'waktu' => $request->waktu,
-            'uraian' => $request->uraian,
-        ]);
-        return redirect()->route('albums.index');
+    
+        try {
+            $album->update([
+                'namaAlbum' => $request->namaAlbum,
+                'deskripsi' => $request->deskripsi,
+                'lokasi' => $request->lokasi,
+                'waktu' => $request->waktu,
+                'uraian' => $request->uraian,
+            ]);
+    
+            return redirect()->route('albums.index')->with('success', 'Album berhasil diperbarui.');
+            
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Album gagal diperbarui. Silakan coba lagi.');
+        }
     }
-
+    
     /**
      * Remove the specified resource from storage.
      */

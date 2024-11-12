@@ -9,11 +9,11 @@ class Album extends Model{
     protected $fillable = [
         'namaAlbum',
         'deskripsi',
-        'tanggalDibuat',
-        'userID',
         'waktu',
         'lokasi',
-        'uraian'
+        'uraian',
+        'userID',
+        'tanggalDibuat'
     ];
 
     public function user() {
