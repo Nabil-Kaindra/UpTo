@@ -14,9 +14,9 @@
                             alt="{{ $album->judulAlbum }}" 
                             class="card-img-top fixed-image">
                     @else
-                        {{-- Placeholder jika album tidak memiliki foto --}}
-                        <img src="{{ asset('images/default-album.png') }}" 
-                            alt="No image available" 
+                        <!-- Placeholder jika album tidak memiliki foto -->
+                        <img src="{{ asset('images/default-album.png') }}"
+                            alt="No image available"
                             class="card-img-top fixed-image">
                     @endif
                     <div class="card-body text-center">

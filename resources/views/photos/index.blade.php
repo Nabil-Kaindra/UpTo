@@ -31,7 +31,7 @@
                     <hr>
                     <p><strong>Nama Kegiatan:</strong> {{ $album->namaAlbum }}</p>
                     <p><strong>Tanggal:</strong> {{ $album->tanggalDibuat }}</p>
-                    <p><strong>Jam Kegiatan:</strong> {{ $album->waktu }}</p>
+                    <p><strong>Jam Kegiatan:</strong> {{ $album->waktu }} WIB </p>
                     <p><strong>Lokasi:</strong> {{ $album->lokasi }}</p>
                     <p><strong>Uraian:</strong> {{ $album->uraian }}</p>
                     <p><strong>Deskripsi:</strong> {{ $album->deskripsi }}</p>

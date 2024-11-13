@@ -20,7 +20,7 @@
             </td>
             <td>{{ $album->deskripsi }}</td>
             <td>{{ $album->lokasi }}</td>
-            <td>{{ $album->waktu }}</td>
+            <td>{{ $album->waktu }} WIB</td>
             <td>{{ $album->uraian }}</td>
             <td style="text-align: center;">
                 <a href="{{ route('albums.edit', $album->albumID) }}">Edit</a>
