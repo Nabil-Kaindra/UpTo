@@ -1,42 +1,45 @@
 @extends('layouts.app')
 @section('content')
 
-<h3>Nama Album: {{ $album->namaAlbum }}</h3>
-<p>Deskripsi: {{ $album->deskripsi }}</p>
-<table>
-    <tr>
-        <th>Judul</th>
-        <th>Deskripsi</th>
-        <th>Foto</th>
-        <th>Aksi</th>
-    </tr>
-    @if($album->photos->isNotEmpty())
-    @foreach($album->photos as $photo)
-    <tr>
-        <td>{{ $photo->judulFoto }}</td>
-        <td>{{ $photo->deskripsiFoto }}</td>
-        <td>
-            <img src="{{ asset('storage/' . $photo->lokasiFile) }}"
-            loading="lazy" alt="{{ $photo->judulFoto }}"
-            style="width: 200px; height: auto; aspect-ratio: 1/1;
-                    object-fit: cover;">
-        </td>
-        <td>
-            <a href="{{ route('photos.edit', $photo->fotoID) }}">Edit</a>
-            <form action="{{ route('photos.destroy', $photo->fotoID) }}"
-                method="POST"
-                onsubmit="return confirm('Yakin ingin menghapus foto ini?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit">Hapus</button>
-            </form>
-        </td>
-    </tr>
-    @endforeach
-@else
-<tr>
-    <td colspan="4">Tidak ada foto di album ini.</td>
-</tr>
-@endif
-</table>
+<div class="container my-5">
+    <div class="row">
+        <!-- Bagian kiri dengan gambar-gambar album -->
+        <div class="col-md-6">
+            <h4 class="mb-4 text-center">Foto Kegiatan</h4>
+            <div class="row row-cols-2 g-3">
+                @foreach($album->photos as $photo)
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="{{ asset('storage/' . $photo->lokasiFile) }}" 
+                                alt="{{ $photo->judulFoto }}" 
+                                class="card-img-top rounded" 
+                                style="aspect-ratio: 1/1; object-fit: cover;">
+                            <div class="card-body p-2 text-center">
+                                <p class="card-text text-muted mb-0">{{ $photo->judulFoto }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Bagian kanan dengan keterangan album -->
+        <div class="col-md-6">
+            <h4 class="mb-4 text-center">Kegiatan</h4>
+            <div class="card shadow-lg p-4">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">Informasi Kegiatan</h5>
+                    <hr>
+                    <p><strong>Nama Kegiatan:</strong> {{ $album->namaAlbum }}</p>
+                    <p><strong>Tanggal:</strong> {{ $album->tanggalDibuat }}</p>
+                    <p><strong>Jam Kegiatan:</strong> {{ $album->waktu }}</p>
+                    <p><strong>Lokasi:</strong> {{ $album->lokasi }}</p>
+                    <p><strong>Uraian:</strong> {{ $album->uraian }}</p>
+                    <p><strong>Deskripsi:</strong> {{ $album->deskripsi }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
