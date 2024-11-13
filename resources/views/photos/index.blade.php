@@ -25,7 +25,6 @@
 
         <!-- Bagian kanan dengan keterangan album -->
         <div class="col-md-6">
-            <h4 class="mb-4 text-center">Kegiatan</h4>
             <div class="card shadow-lg p-4">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Informasi Kegiatan</h5>
