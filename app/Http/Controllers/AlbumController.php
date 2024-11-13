@@ -82,24 +82,16 @@ class AlbumController extends Controller
             'namaAlbum' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:150',
             'lokasi' => 'required|string|max:255',
-            'waktu' => 'required|date_format:H:i',
             'uraian' => 'required|string|max:255',
         ]);
-    
-        try {
-            $album->update([
-                'namaAlbum' => $request->namaAlbum,
-                'deskripsi' => $request->deskripsi,
-                'lokasi' => $request->lokasi,
-                'waktu' => $request->waktu,
-                'uraian' => $request->uraian,
-            ]);
-    
-            return redirect()->route('albums.index')->with('success', 'Album berhasil diperbarui.');
-            
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Album gagal diperbarui. Silakan coba lagi.');
-        }
+        $album->update([
+            'namaAlbum' => $request->namaAlbum,
+            'deskripsi' => $request->deskripsi,
+            'lokasi' => $request->lokasi,
+            'waktu' => $request->waktu,
+            'uraian' => $request->uraian,
+        ]); 
+            return redirect()->route('albums.index');
     }
     
     /**

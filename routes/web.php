@@ -24,9 +24,6 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('photos/search', [PhotoController::class, 'search'])->name('photos.search');
 
-Route::post('photos/{photo}/like/', [PhotoController::class, 'like'])->name('photos.like');
-Route::get('/photos/{photo}/comments', [PhotoController::class, 'showComments'])->name('photos.comments');
-Route::post('/photos/{photo}/comments', [PhotoController::class, 'storeComment'])->name('photos.comment.store');
 
 Route::middleware('auth')->group(function () {
     Route::resource('photos', PhotoController::class);

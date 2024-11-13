@@ -23,7 +23,7 @@
             </div>
             <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi Album</label>
-                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required maxlength="150"></textarea>
+                <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"  maxlength="150"></textarea>
                 <small class="form-text text-muted">Maksimum 150 karakter.</small>
             </div>
             <div class="text-end">

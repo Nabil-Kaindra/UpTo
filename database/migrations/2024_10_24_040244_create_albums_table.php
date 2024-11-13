@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('namaAlbum');
             $table->text('deskripsi')->nullable();
             $table->text('lokasi')->nullable();
-            $table->time('waktu');
-            $table->text('uraian');
+            $table->time('waktu')->nullable();
+            $table->text('uraian')->nullable();
             $table->date('tanggalDibuat');
             $table->foreignId('userID')
                 ->constrained('users', 'userID')->onDelete('cascade');
