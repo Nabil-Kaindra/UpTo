@@ -43,7 +43,15 @@
             <!-- Tombol Update -->
             <div class="text-end">
                 <button type="submit" class="btn btn-primary">Update Foto</button>
+                <form action="{{ route('photos.destroy', $photo->fotoID) }}"
+                method="POST"
+                onsubmit="return confirm('Yakin ingin menghapus foto ini?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
             </div>
+
         </form>
     </div>
 </div>
