@@ -24,10 +24,10 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('photos/search', [PhotoController::class, 'search'])->name('photos.search');
 
-Route::resource('albums', AlbumController::class);
 Route::get('/albums/{album}/photos', [PhotoController::class, 'index'])->name('albums.photos');
 
 Route::middleware('auth')->group(function () {
+    Route::resource('albums', AlbumController::class);
     Route::resource('photos', PhotoController::class);
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
