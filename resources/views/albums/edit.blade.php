@@ -16,6 +16,10 @@
                 <input type="text" class="form-control" name="lokasi" id="lokasi" value="{{ $album->lokasi }}" >
             </div>
             <div class="mb-3">
+                <label for="tanggalDibuat" class="form-label">Tanggal</label>
+                <input type="date" class="form-control" name="tanggalDibuat" id="tanggalDibuat" value="{{ $album->tanggalDibuat }}" required>
+            </div>
+            <div class="mb-3">
                 <label for="waktu" class="form-label">Jam Kegiatan</label>
                 <input type="time" class="form-control" name="waktu" id="waktu" value="{{ $album->waktu }}" >
             </div>

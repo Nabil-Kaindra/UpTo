@@ -16,6 +16,7 @@
                     <th>Judul Kegiatan</th>
                     <th>Deskripsi</th>
                     <th>Lokasi</th>
+                    <th>Tanggal Kegiatan</th>
                     <th>Waktu Kegiatan</th>
                     <th>Uraian</th>
                     <th>Aksi</th>
@@ -25,12 +26,13 @@
                 @foreach($albums as $album)
                 <tr>
                     <td>
-                        <a href="{{ route('albums.photos', $album->albumID) }}" class="text-decoration-none text-dark">
+                        <a href="{{ route('albums.photos', $album->albumID) }}" >
                             {{ $album->namaAlbum }}
                         </a>
                     </td>
                     <td>{{ Str::limit($album->deskripsi, 50) }}</td>
                     <td>{{ $album->lokasi }}</td>
+                    <td>{{ $album->tanggalDibuat }}</td>
                     <td>{{ $album->waktu }} WIB</td>
                     <td>{{ Str::limit($album->uraian, 50) }}</td>
                     <td>

@@ -6,12 +6,16 @@
         <form action="{{ route('albums.store') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="namaAlbum" class="form-label">Nama Album</label>
+                <label for="namaAlbum" class="form-label">Judul Kegiatan</label>
                 <input type="text" class="form-control" name="namaAlbum" id="namaAlbum" required>
             </div>
             <div class="mb-3">
                 <label for="lokasi" class="form-label">Lokasi Kegiatan</label>
                 <input type="text" class="form-control" name="lokasi" id="lokasi" required>
+            </div>
+            <div class="mb-3">
+                <label for="tanggalDibuat" class="form-label">Tanggal</label>
+                <input type="date" class="form-control" name="tanggalDibuat" id="tanggalDibuat" required>
             </div>
             <div class="mb-3">
                 <label for="waktu" class="form-label">Jam Kegiatan</label>
@@ -22,7 +26,7 @@
                 <input type="text" class="form-control" name="uraian" id="uraian" required>
             </div>
             <div class="mb-3">
-                <label for="deskripsi" class="form-label">Deskripsi Album</label>
+                <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"  maxlength="150"></textarea>
                 <small class="form-text text-muted">Maksimum 150 karakter.</small>
             </div>

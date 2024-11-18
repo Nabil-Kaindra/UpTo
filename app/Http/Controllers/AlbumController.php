@@ -34,6 +34,7 @@ class AlbumController extends Controller
             'namaAlbum' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:255',
             'lokasi' => 'required|string|max:255',
+            'tanggalDibuat' =>'required|date',
             'waktu' => 'required|date_format:H:i',
             'uraian' => 'required|string|max:255',
         ]);
@@ -43,8 +44,8 @@ class AlbumController extends Controller
             'lokasi' => $request->lokasi,
             'waktu' => $request->waktu,
             'uraian' => $request->uraian,
+            'tanggalDibuat' => $request->tanggalDibuat,
             'userID' => Auth::id(),
-            'tanggalDibuat' => now(),
         ]);
         return redirect()->route('albums.index');
 
@@ -88,6 +89,7 @@ class AlbumController extends Controller
             'namaAlbum' => $request->namaAlbum,
             'deskripsi' => $request->deskripsi,
             'lokasi' => $request->lokasi,
+            'tanggalDibuat' => $request->tanggalDibuat,
             'waktu' => $request->waktu,
             'uraian' => $request->uraian,
         ]); 
