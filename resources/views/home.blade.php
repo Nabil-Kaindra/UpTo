@@ -26,9 +26,10 @@
                         <div class="card-body text-center">
                             <h5 class="card-title font-weight-bold">{{ $album->namaAlbum }}</h5>
                             <p class="card-text text-muted">{{ Str::limit($album->deskripsi, 70) }}</p>
-                            <p class="card-text">
-                                <small class="text-muted">{{ $album->created_at->format('d M Y') }}</small>
-                            </p>
+                            <p><small class="text-muted">
+                                {{ $album->tanggalDibuat ? \Carbon\Carbon::parse
+                                ($album->tanggalDibuat)->format('d M Y') : 'Tanggal tidak tersedia' }}
+                            </small></p>
                         </div>
                     </div>
                 </a>
