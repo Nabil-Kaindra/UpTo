@@ -9,13 +9,15 @@
                 @foreach($album->photos as $photo)
                     <div class="col">
                         <div class="card shadow-sm">
-                            <img src="{{ asset('storage/' . $photo->lokasiFile) }}" 
-                                alt="{{ $photo->judulFoto }}" 
-                                class="card-img-top rounded" 
-                                style="aspect-ratio: 1/1; object-fit: cover;">
-                            <div class="card-body p-2 text-center">
-                                <p class="card-text text-muted mb-0">{{ $photo->judulFoto }}</p>
-                            </div>
+                            <a href="{{ route('photos.edit', $photo->fotoID) }}">
+                                <img src="{{ asset('storage/' . $photo->lokasiFile) }}" 
+                                    alt="{{ $photo->judulFoto }}" 
+                                    class="card-img-top rounded" 
+                                    style="aspect-ratio: 1/1; object-fit: cover;">
+                                <div class="card-body p-2 text-center">
+                                    <p class="card-text text-muted mb-0">{{ $photo->judulFoto }}</p>
+                                </div>
+                        </a>
                         </div>
                     </div>
                 @endforeach

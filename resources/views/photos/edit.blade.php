@@ -1,45 +1,50 @@
 @extends('layouts.app')
+
 @section('content')
-<h2  style="text-align: center;">Edit Foto</h2>
-<form action="{{ route('photos.update', $photo->fotoID) }}"
-method="POST" enctype="multipart/form-data">
-@csrf
-@method('PUT')
-<table style="border: none;">
-    <tr>
-        <td><label for="judulFoto">Judul Foto</label></td>
-        <td><input type="text" id="judulFoto" name="judulFoto"
-        value="{{ $photo->judulFoto }}" required></td>
-    </tr>
-    <tr>
-        <td><label for="photo">Pilih foto</label></td>
-        <td>
-            <input type="file" id="photo" name="photo">
-            <small>Biarkan Kosong Jika Tidak Ingin Mengubah Foto.</small>
-        </td>
-    </tr>
-    <tr>
-        <td><label for="description">Deskripsi</label></td>
-        <td><textarea id="description" name="description"
-        rows="3">{{ $photo ->deskripsiFoto }}</textarea></td>
-    </tr>
-    <tr>
-        <td><label for="albumID">Album</label></td>
-        <td>
-            <select id="albumID" name="albumID" required>
-                <option value="">Pilih Album</option>
-                @foreach ($albums as $album)
-                <option value="{{ $album->albumID }}"
-                {{ $photo->albumID == $album->albumID ? 'selected' : '' }}>
-                {{ $album->namaAlbum }}
-                </option>
-                @endforeach
-            </select>
-        </td>
-</tr>
-<tr>
-<td colspan="2"><button type="submit">Update Foto</button></td>
-</tr>
-</table>
-</form>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Foto</h2>
+    <div class="card shadow-sm p-4">
+        <form action="{{ route('photos.update', $photo->fotoID) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+
+            <!-- Input Judul Foto -->
+            <div class="mb-3">
+                <label for="judulFoto" class="form-label">Judul Foto</label>
+                <input type="text" id="judulFoto" name="judulFoto" class="form-control" value="{{ $photo->judulFoto }}" required>
+            </div>
+
+            <!-- Input Pilih Foto -->
+            <div class="mb-3">
+                <label for="photo" class="form-label">Pilih Foto</label>
+                <input type="file" id="photo" name="photo" class="form-control">
+                <small class="text-muted">Biarkan kosong jika tidak ingin mengubah foto.</small>
+            </div>
+
+            <!-- Input Deskripsi -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea id="description" name="description" class="form-control" rows="3">{{ $photo->deskripsiFoto }}</textarea>
+            </div>
+
+            <!-- Input Album -->
+            <div class="mb-3">
+                <label for="albumID" class="form-label">Kegiatan</label>
+                <select id="albumID" name="albumID" class="form-select" required>
+                    <option value="">Pilih Kegiatan</option>
+                    @foreach ($albums as $album)
+                        <option value="{{ $album->albumID }}" {{ $photo->albumID == $album->albumID ? 'selected' : '' }}>
+                            {{ $album->namaAlbum }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Tombol Update -->
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Update Foto</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
