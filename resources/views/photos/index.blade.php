@@ -1,8 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="container my-5">
-    <div class="row">
+    <div class="row g-4">
         <!-- Bagian kiri dengan gambar-gambar album -->
         <div class="col-md-6">
             <h4 class="mb-4 text-center">Foto Kegiatan</h4>
@@ -24,8 +23,8 @@
         </div>
 
         <!-- Bagian kanan dengan keterangan album -->
-        <div class="col-md-6">
-            <div class="card shadow-lg p-4">
+        <div class="col-md-6 d-flex align-items-center">
+            <div class="card shadow-lg p-4 w-100" style="width: 100%; max-width: none;">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Informasi Kegiatan</h5>
                     <hr>
@@ -40,5 +39,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection
