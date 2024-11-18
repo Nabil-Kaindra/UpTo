@@ -1,12 +1,12 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container my-5">
     <div class="row g-4">
         <!-- Bagian kiri dengan gambar-gambar album -->
         <div class="col-md-6">
-            <h4 class="mb-4 text-center">Foto Kegiatan</h4>
             <div class="row row-cols-2 g-3">
-                @foreach($album->photos as $photo)
+                @foreach($photos as $photo)
                     <div class="col">
                         <div class="card shadow-sm">
                             <a href="{{ route('photos.edit', $photo->fotoID) }}">
@@ -17,16 +17,16 @@
                                 <div class="card-body p-2 text-center">
                                     <p class="card-text text-muted mb-0">{{ $photo->judulFoto }}</p>
                                 </div>
-                        </a>
+                            </a>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
 
-        <!-- Bagian kanan dengan keterangan album -->
-        <div class="col-md-6 d-flex align-items-center">
-            <div class="card shadow-lg p-4 w-100" style="width: 100%; max-width: none;">
+        <!-- Bagian kanan dengan keterangan album (Fixed) -->
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4 w-100 fixed-card">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Informasi Kegiatan</h5>
                     <hr>
@@ -40,7 +40,10 @@
             </div>
         </div>
     </div>
+
+    <!-- Navigasi pagination -->
+    <div class="d-flex justify-content-center">
+        {{ $photos->links() }}
+    </div>
 </div>
-
-
 @endsection

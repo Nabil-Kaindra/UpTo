@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Session;
 class PhotoController extends Controller {
 
     public function index(Album $album) {
-        $album->load('photos');
-        return view('photos.index', compact('album'));
+        $photos = $album->photos()->paginate(4);
+        return view('photos.index', compact('album', 'photos'));
     }
 
     public function create() {
