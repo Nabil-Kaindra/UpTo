@@ -45,7 +45,7 @@ class PhotoController extends Controller {
             'albumID' => $request->albumID,
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('albums.photos', ['album' => $request->albumID]);
     }
 
     public function show(Photo $photo) {
