@@ -19,9 +19,9 @@
                 <textarea name="description" id="description" class="form-control" rows="3" placeholder="Tambahkan deskripsi (opsional)"></textarea>
             </div>
             <div class="mb-3">
-                <label for="albumID" class="form-label">Album</label>
+                <label for="albumID" class="form-label">Kegiatan</label>
                 <select name="albumID" id="albumID" class="form-select" required>
-                    <option value="">Pilih Album</option>
+                    <option value="">Pilih Kegiatan</option>
                     @foreach ($albums as $album)
                     <option value="{{ $album->albumID }}">
                         {{ $album->namaAlbum }}
