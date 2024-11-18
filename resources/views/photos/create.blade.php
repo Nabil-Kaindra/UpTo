@@ -1,25 +1,26 @@
 @extends('layouts.app')
+
 @section('content')
-<h2  style="text-align: center; margin-top: 20px;">Upload Foto Baru</h2>
-<form action="{{ route('photos.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <table style="border: none;">
-        <tr>
-            <td><label for="judulFoto">Judul Foto</label></td>
-            <td>    <input type="text" name="judulFoto" required></td>
-        </tr>
-        <tr>
-            <td><label for="photo">Pilih Photo</label></td>
-            <td><input type="file" name="photo" required></td>
-        </tr>
-        <tr>
-            <td><label for="description">Deskripsi</label></td>
-            <td><textarea name="description" rows="3"></textarea></td>
-        </tr>
-        <tr>
-            <td><label for="albumID">Album</label></td>
-            <td>
-                <select name="albumID" required>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Upload Foto Baru</h2>
+    <div class="card shadow-sm p-4">
+        <form action="{{ route('photos.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+                <label for="judulFoto" class="form-label">Judul Foto</label>
+                <input type="text" name="judulFoto" id="judulFoto" class="form-control" placeholder="Masukkan judul foto" required>
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Pilih Foto</label>
+                <input type="file" name="photo" id="photo" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea name="description" id="description" class="form-control" rows="3" placeholder="Tambahkan deskripsi (opsional)"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="albumID" class="form-label">Album</label>
+                <select name="albumID" id="albumID" class="form-select" required>
                     <option value="">Pilih Album</option>
                     @foreach ($albums as $album)
                     <option value="{{ $album->albumID }}">
@@ -27,11 +28,11 @@
                     </option>
                     @endforeach
                 </select>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2"><button type="submit">Unggah Foto</button></td>
-        </tr>
-    </table>
-</form>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Unggah Foto</button>
+            </div>
+        </form>
+    </div>
+</div>
 @endsection
