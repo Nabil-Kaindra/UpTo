@@ -5,7 +5,7 @@
 <div class="container mt-5">
     @if($albums->isEmpty())
         <div class="alert alert-warning text-center">
-            Album yang dicari tidak ditemukan.
+            Dokumentasi kegiatan tidak tersedia .
         </div>
     @else
         <div class="row">

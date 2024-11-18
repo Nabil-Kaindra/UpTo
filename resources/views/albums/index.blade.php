@@ -13,30 +13,32 @@
         <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th>Judul Kegiatan</th>
-                    <th>Deskripsi</th>
-                    <th>Lokasi</th>
-                    <th>Tanggal Kegiatan</th>
-                    <th>Waktu Kegiatan</th>
-                    <th>Uraian</th>
-                    <th>Aksi</th>
+                    <th class="text-center">Foto</th>
+                    <th class="text-center">Judul Kegiatan</th>
+                    <th class="text-center">Deskripsi</th>
+                    <th class="text-center">Lokasi</th>
+                    <th class="text-center">Tanggal Kegiatan</th>
+                    <th class="text-center">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($albums as $album)
                 <tr>
-                    <td>
-                        <a href="{{ route('albums.photos', $album->albumID) }}" >
+                    <td class="text-center">                            
+                        <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
+                            alt="{{ $album->judulAlbum }}"
+                            style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                    </td>
+                    <td class="text-center">
+                        <a href="{{ route('albums.photos', $album->albumID) }}">
                             {{ $album->namaAlbum }}
                         </a>
                     </td>
-                    <td>{{ Str::limit($album->deskripsi, 50) }}</td>
-                    <td>{{ $album->lokasi }}</td>
-                    <td>{{ $album->tanggalDibuat }}</td>
-                    <td>{{ $album->waktu }} WIB</td>
-                    <td>{{ Str::limit($album->uraian, 50) }}</td>
-                    <td>
-                        <div class="d-flex gap-2">
+                    <td class="text-center">{{ Str::limit($album->deskripsi, 50) }}</td>
+                    <td class="text-center">{{ $album->lokasi }}</td>
+                    <td class="text-center">{{ $album->tanggalDibuat }}</td>
+                    <td class="text-center">
+                        <div class="d-flex gap-2 justify-content-center">
                             <a href="{{ route('albums.edit', $album->albumID) }}" class="btn btn-sm btn-warning">
                                 Edit
                             </a>

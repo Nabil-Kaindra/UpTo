@@ -6,12 +6,14 @@ table {
     background-color: #DFF2EB;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    text-align: center;
 }
 
 th, td {
     border: 1px solid #4A628A;
     padding: 8px;
     background-color: #DFF2EB;
+    text-align: center;
 }
 
 th {
