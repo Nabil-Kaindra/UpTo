@@ -35,7 +35,7 @@
             <ul class="navbar-nav ms-auto">
                 @if(Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('albums.index') }}">Albums</a>
+                        <a class="nav-link" href="{{ route('albums.index') }}">Kegiatan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('photos.create') }}">Upload</a>
