@@ -20,17 +20,13 @@
                             </a>
                         </div>
                     </div>
-                    @endforeach
-                </div>
-                <!-- Navigasi pagination -->
-                <div class="d-flex justify-content-center">
-                    {{ $photos->links() }}
-                </div>
+                @endforeach
+            </div>
         </div>
 
-        <!-- Bagian kanan dengan keterangan album (Fixed) -->
+        <!-- Bagian kanan dengan keterangan album dan pagination -->
         <div class="col-md-6">
-            <div class="card shadow-lg p-4 w-100 fixed-card">
+            <div class="card shadow-lg p-3 w-100">
                 <div class="card-body">
                     <h5 class="card-title text-primary">Informasi Kegiatan</h5>
                     <hr>
@@ -42,8 +38,12 @@
                     <p><strong>Deskripsi:</strong> {{ $album->deskripsi }}</p>
                 </div>
             </div>
+
+            <!-- Navigasi pagination di bawah informasi kegiatan -->
+            <div class="d-flex justify-content-end ">
+                {{ $photos->links() }}
+            </div>
         </div>
     </div>
-
 </div>
 @endsection
