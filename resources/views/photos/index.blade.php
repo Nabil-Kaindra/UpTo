@@ -20,8 +20,12 @@
                             </a>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
+                <!-- Navigasi pagination -->
+                <div class="d-flex justify-content-center">
+                    {{ $photos->links() }}
+                </div>
         </div>
 
         <!-- Bagian kanan dengan keterangan album (Fixed) -->
@@ -41,9 +45,5 @@
         </div>
     </div>
 
-    <!-- Navigasi pagination -->
-    <div class="d-flex justify-content-center">
-        {{ $photos->links() }}
-    </div>
 </div>
 @endsection
