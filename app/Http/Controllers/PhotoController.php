@@ -29,7 +29,6 @@ class PhotoController extends Controller {
 
             'photo' => 'required|image|max:2048',
             'judulFoto' => 'required|string|max:255',
-            'description' => 'nullable|string|max:255',
             'albumID' => 'required|exists:albums,albumID',
         ]);
 
@@ -40,7 +39,6 @@ class PhotoController extends Controller {
             'userID' => auth()->id(),
             'lokasiFile' => $path,
             'judulFoto' => $request->judulFoto,
-            'deskripsiFoto' => $request->description,
             'tanggalUnggah' => now(),
             'albumID' => $request->albumID,
         ]);
@@ -68,7 +66,6 @@ class PhotoController extends Controller {
 
         $request->validate([
             'judulFoto' => 'required|string|max:255',
-            'description' => 'nullable|string|max:255',
         ]);
 
         if ($request->hasFile('photo')) {
@@ -79,8 +76,6 @@ class PhotoController extends Controller {
         }
 
         $photo->judulFoto = $request->judulFoto;
-        $photo->deskripsiFoto = $request->description;
-
         $photo->save();
 
         return redirect()->route('albums.photos', $photo->albumID);

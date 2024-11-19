@@ -21,12 +21,6 @@
                 <small class="text-muted">Biarkan kosong jika tidak ingin mengubah foto.</small>
             </div>
 
-            <!-- Input Deskripsi -->
-            <div class="mb-3">
-                <label for="description" class="form-label">Deskripsi</label>
-                <textarea id="description" name="description" class="form-control" rows="3">{{ $photo->deskripsiFoto }}</textarea>
-            </div>
-
             <!-- Input Album -->
             <div class="mb-3">
                 <label for="albumID" class="form-label">Kegiatan</label>
@@ -42,15 +36,22 @@
 
             <!-- Tombol Update -->
             <div class="text-end">
-                <button type="submit" class="btn btn-primary">Update Foto</button>
-                <form action="{{ route('photos.destroy', $photo->fotoID) }}"
-                method="POST"
-                onsubmit="return confirm('Yakin ingin menghapus foto ini?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">Hapus</button>
+                {{-- Form untuk Update Foto --}}
+                <form action="{{ route('photos.update', $photo->fotoID) }}" method="POST" class="d-inline">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-primary">Update Foto</button>
+                </form>
+
+                {{-- Form untuk Hapus Foto --}}
+                <form action="{{ route('photos.destroy', $photo->fotoID) }}" method="POST" class="d-inline" 
+                    onsubmit="return confirm('Yakin ingin menghapus foto ini?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
+
 
         </form>
     </div>

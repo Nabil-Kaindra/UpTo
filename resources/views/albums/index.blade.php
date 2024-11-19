@@ -24,11 +24,16 @@
             <tbody>
                 @foreach($albums as $album)
                 <tr>
-                    <td class="text-center">                            
-                        <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
-                            alt="{{ $album->judulAlbum }}"
-                            style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
-                    </td>
+                <td class="text-center">
+                @if ($album->photos->isNotEmpty() && $album->photos->first()?->lokasiFile)
+                    <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
+                    alt="{{ $album->judulAlbum }}"
+                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                @else
+                    <span>No Photo Available</span>
+                @endif
+</td>
+
                     <td class="text-center">
                         <a href="{{ route('albums.photos', $album->albumID) }}">
                             {{ $album->namaAlbum }}

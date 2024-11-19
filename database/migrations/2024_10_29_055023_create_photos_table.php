@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id('fotoID');
             $table->string('judulFoto');
-            $table->text('deskripsiFoto')->nullable();
             $table->date('tanggalUnggah');
             $table->string('lokasiFile');
             $table->foreignId('albumID')->constrained('albums', 'albumID')->onDelete('cascade');

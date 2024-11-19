@@ -15,10 +15,6 @@
                 <input type="file" name="photo" id="photo" class="form-control" required>
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label">Deskripsi</label>
-                <textarea name="description" id="description" class="form-control" rows="3" placeholder="Tambahkan deskripsi (opsional)"></textarea>
-            </div>
-            <div class="mb-3">
                 <label for="albumID" class="form-label">Kegiatan</label>
                 <select name="albumID" id="albumID" class="form-select" required>
                     <option value="">Pilih Kegiatan</option>

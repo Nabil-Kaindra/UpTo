@@ -10,7 +10,6 @@ class Photo extends Model
     protected $primaryKey='fotoID';
     protected $fillable = [
     'judulFoto',
-    'deskripsiFoto',
     'tanggalUnggah',
     'lokasiFile',
     'albumID',
@@ -23,17 +22,5 @@ class Photo extends Model
 
     public function user() {
         return $this->belongsTo(User::class, 'userID');
-    }
-
-    public function comments() {
-        return $this->hasMany(Comment::class, 'fotoID');
-    }
-
-    public function likes() {
-        return $this->hasMany(LikePhoto::class, 'fotoID');
-    }
-
-    public function isLikedByAuthUser() {
-        return $this->likes()->where('userID', Auth::user()->userID)->exists();
     }
 }
