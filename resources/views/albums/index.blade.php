@@ -30,7 +30,9 @@
                     alt="{{ $album->judulAlbum }}"
                     style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
                 @else
-                    <span>No Photo Available</span>
+                <img src="{{ asset('storage/default.jpg') }}"
+                    alt="No Photo Available"
+                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
                 @endif
 </td>
 
