@@ -3,14 +3,14 @@
 @section('content')
 
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Daftar Kegiatan</h2>
+    <h2 class="text-center mb-4">Daftar Dokumentasi Kegiatan</h2>
     <div class="d-flex justify-content-end mb-3">
         <a href="{{ route('albums.create') }}" class="btn btn-primary">
             Tambah Kegiatan
         </a>
     </div>
     <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover"> 
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">Foto</th>
@@ -24,17 +24,17 @@
             <tbody>
                 @foreach($albums as $album)
                 <tr>
-                <td class="text-center">
+            <td class="text-center">
                 @if ($album->photos->isNotEmpty() && $album->photos->first()?->lokasiFile)
                     <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
                     alt="{{ $album->judulAlbum }}"
                     style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
                 @else
                 <img src="{{ asset('storage/default.jpg') }}"
-                    alt="No Photo Available"
+                    alt="No Photo Has Been Uploaded"
                     style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
                 @endif
-</td>
+            </td>
 
                     <td class="text-center">
                         <a href="{{ route('albums.photos', $album->albumID) }}">

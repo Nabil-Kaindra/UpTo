@@ -3,6 +3,14 @@
 @section('content')
 <h2 style="text-align: center; margin-top: 20px;">Profil Saya</h2>
 
+@if(session('success'))
+    <div style="background-color: #d4edda; color: #155724; padding: 10px; 
+                margin-bottom: 20px; border: 1px solid #c3e6cb; 
+                border-radius: 5px; text-align: center;">
+        {{ session('success') }}
+    </div>
+@endif 
+
 <form action="{{ route('profile.update') }}" method="POST" 
     style="max-width: 600px; margin: 20px auto; padding: 20px; 
             border: 1px solid #ccc; border-radius: 8px; 
@@ -15,7 +23,7 @@
             <td style="padding: 8px;">
                 <input type="text" name="username" value="{{ $user->username }}" 
                     style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;">
+                            border: 1px solid #ddd; border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
@@ -23,7 +31,7 @@
             <td style="padding: 8px;">
                 <input type="text" name="namaLengkap" value="{{ $user->namalengkap }}" 
                     style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;">
+                            border: 1px solid #ddd; border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
@@ -31,7 +39,7 @@
             <td style="padding: 8px;">
                 <input type="email" name="email" value="{{ $user->email }}" 
                     style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;">
+                            border: 1px solid #ddd; border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
