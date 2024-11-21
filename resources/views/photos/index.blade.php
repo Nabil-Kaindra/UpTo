@@ -3,7 +3,7 @@
 @section('content')
 <div class="container my-5">
     <div class="row g-4">
-        <!-- Bagian kiri dengan gambar-gambar album -->
+        <!--Bagian Kiri Yang Berisi Foto Dari Kegiatan-->
         <div class="col-md-6">
             <div class="row row-cols-2 g-3">
                 @foreach($photos as $photo)
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <!-- Bagian kanan dengan keterangan album dan pagination -->
+        <!--Bagian Kanan Yang Berisi Keterangan Dari Kegiatan-->
         <div class="col-md-6">
             <div class="card shadow-lg p-3 w-100">
                 <div class="card-body">
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <!-- Navigasi pagination di bawah informasi kegiatan -->
+            <!--Tombol Pagination Jika Foto Di Kegiatan Atau Album Lebih Dari 4 Foto-->
             <div class="d-flex justify-content-end ">
                 {{ $photos->links() }}
             </div>

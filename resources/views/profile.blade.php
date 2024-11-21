@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <h2 style="text-align: center; margin-top: 20px;">Profil Saya</h2>
 
@@ -22,40 +21,40 @@
             <td style="padding: 8px;"><label for="username">Username</label></td>
             <td style="padding: 8px;">
                 <input type="text" name="username" value="{{ $user->username }}" 
-                    style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;" required>
+                style="width: 100%; padding: 8px; border: 1px solid #ddd; 
+                border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
             <td style="padding: 8px;"><label for="namaLengkap">Nama Lengkap</label></td>
             <td style="padding: 8px;">
                 <input type="text" name="namaLengkap" value="{{ $user->namalengkap }}" 
-                    style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;" required>
+                style="width: 100%; padding: 8px; border: 1px solid #ddd;
+                border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
             <td style="padding: 8px;"><label for="email">Email</label></td>
             <td style="padding: 8px;">
                 <input type="email" name="email" value="{{ $user->email }}" 
-                    style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;" required>
+                style="width: 100%; padding: 8px; border: 1px solid #ddd; 
+                border-radius: 4px;" required>
             </td>
         </tr>
         <tr>
             <td style="padding: 8px;"><label for="password">Password</label></td>
             <td style="padding: 8px;">
                 <input type="password" name="password" 
-                    style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;">
+                style="width: 100%; padding: 8px; border: 1px solid #ddd; 
+                border-radius: 4px;">
             </td>
         </tr>
         <tr>
             <td style="padding: 8px;"><label for="password_confirmation">Konfirmasi Password</label></td>
             <td style="padding: 8px;">
                 <input type="password" name="password_confirmation" 
-                    style="width: 100%; padding: 8px; 
-                            border: 1px solid #ddd; border-radius: 4px;">
+                style="width: 100%; padding: 8px; border: 1px solid #ddd; 
+                border-radius: 4px;">
             </td>
         </tr>
 </form>

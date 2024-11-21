@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
+
+
 <div class="container mt-5">
     <h2 class="text-center mb-4">Edit Album</h2>
     <div class="card shadow-sm p-4">

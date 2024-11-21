@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('content')
+
+<!-- PAGE TAMBAH KEGIATAN, DIMANA USER BISA BERINTERAKSI DENGAN FORM INI UNTUK MENAMBAHKAN KEGIATAN BARU. PAGE INI HANYA BISA DI AKSES OLEH USER YANG SUDAH LOGIN -->
+
 <div class="container mt-5">
     <h2 class="text-center mb-4">Buat Album Baru</h2>
     <div class="card shadow-sm p-4">
