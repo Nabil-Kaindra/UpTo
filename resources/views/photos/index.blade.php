@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
 <div class="container my-5">
     <div class="row g-4">
         <!--Bagian Kiri Yang Berisi Foto Dari Kegiatan-->
