@@ -20,48 +20,38 @@ th {
     background-color: #7AB2D3;
 }
 
+table tr:hover {
+    background-color: #BCE4D4;
+    transition: background-color 0.3s ease;
+}
+
+/* Body Style */
 body {
     background-color: #A2D2DF;
-    background-image: url(''); 
-    background-size: cover; 
+    background-image: url('path/to/image.jpg'); /* Ganti dengan path gambar yang ingin digunakan */
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Arial, sans-serif;
-    padding-top: 70px; 
+    padding-top: 70px;
 }
 
-
-/* Nav Bar Style */
-.nav-bar {
-    display: flex;
-    align-items: center;
-    background-color: #f8f9fa;
-    padding: 10px 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    gap: 15px;
+/* Navbar Style */
+.navbar-brand img {
+    max-height: 50px !important; 
+    width: auto !important;
 }
 
 .nav-bar a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
+    padding: 5px 10px;
+    font-size: 16px;
 }
 
-.nav-bar a:hover {
-    color: #0056b3;
+.nav-bar .profile-link i {
+    font-size: 20px;
 }
 
-.nav-bar .profile-link {
-    margin-left: auto;
-}
-
-.navbar-brand img {
-        max-height: 50px !important; 
-        width: auto !important;
-}
-
-
-/* Card Styles */
+/* Card Style */
 .card {
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -71,7 +61,8 @@ body {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);
 }
 
 .card-img-top {
@@ -91,6 +82,7 @@ body {
     text-align: center; 
 }
 
+/* Fixed Card */
 .fixed-card {
     width: 100%;
     min-height: 450px;
@@ -126,10 +118,6 @@ body {
     .card-img-top {
         height: 200px;
     }
-    .nav-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 }
 
 .pagination {
@@ -146,14 +134,19 @@ body {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));   
     gap: 10px;
 }
 
 .photo-item {
     width: 100%;
     aspect-ratio: 1 / 1;
-    background-color: #f0f0f0; /* Warna latar belakang untuk placeholder */
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
 }
 
 .album-details {
@@ -170,7 +163,6 @@ body {
 }
 
 .album-details p {
-    margin: 5px 0;
+    margin: 10px 0;
     font-size: 14px;
 }
-

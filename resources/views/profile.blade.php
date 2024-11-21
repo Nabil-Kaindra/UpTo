@@ -2,6 +2,7 @@
 @section('content')
 <h2 style="text-align: center; margin-top: 20px;">Profil Saya</h2>
 
+<!-- Menjalankan Perintah Ini Jika User Berhasil Menambahkan Data Atau Merubah-->
 @if(session('success'))
     <div style="background-color: #d4edda; color: #155724; padding: 10px; 
                 margin-bottom: 20px; border: 1px solid #c3e6cb; 
@@ -10,6 +11,7 @@
     </div>
 @endif 
 
+<!-- Form untuk Mengubah Data Profil -->
 <form action="{{ route('profile.update') }}" method="POST" 
     style="max-width: 600px; margin: 20px auto; padding: 20px; 
             border: 1px solid #ccc; border-radius: 8px; 
@@ -63,11 +65,13 @@
                 <div style="display: flex; justify-content: space-between; align-items: center;">
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
+<!-- Tombol Untuk Logout Dari Akun -->
                         <button type="submit"
                                 style="background-color: #f44336; color: white; padding: 7px 20px; 
                                 border: none; border-radius: 4px; cursor: pointer; 
                                 font-size: 16px;">Logout</button>
                     </form>
+<!-- Tombol Untuk Menyimpan Perubahan -->
                     <button type="submit"
                             style="background-color: #4A90E2; color: white; padding: 7px 20px; 
                             border: none; border-radius: 4px; cursor: pointer; 

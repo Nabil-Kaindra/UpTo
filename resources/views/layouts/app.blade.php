@@ -10,17 +10,19 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 </head>
 
+<!-- Navbar -->
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
     <a class="navbar-brand mx-auto" href="{{ route('home') }}">
-        <img src="{{ asset('images/nav-logo.png') }}" alt="Snapgram Logo" height="40">
+        <img src="{{ asset('images/nav-logo.png') }}" alt="Logo" height="40">
     </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <form class="d-flex mx-auto" action="{{ route('photos.search') }}" method="GET" style="width: 50%;">
                 <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">

@@ -22,7 +22,7 @@
                 <small class="text-muted">Biarkan kosong jika tidak ingin mengubah foto.</small>
             </div>
 
-            <!-- Edit Album Foto Yang Ingin Digunakan -->
+            <!-- Edit Kegiatan Foto Yang Ingin Digunakan -->
             <div class="mb-3">
                 <label for="albumID" class="form-label">Kegiatan</label>
                 <select id="albumID" name="albumID" class="form-select" required>
