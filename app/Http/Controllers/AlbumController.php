@@ -11,11 +11,29 @@ class AlbumController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $albums = Album::where('userID', Auth::id())->paginate(10);
-        return view('albums.index', compact('albums'));
+        // Ambil query pencarian dari input pengguna
+        $query = $request->input('query');  
+    
+        // Periksa apakah ada query pencarian
+        if ($query) {
+            // Jika ada, cari album berdasarkan nama, deskripsi, atau lokasi
+            $albums = Album::where('userID', Auth::id())
+                ->where(function($queryBuilder) use ($query) {
+                    $queryBuilder->where('namaAlbum', 'like', "%$query%")
+                                ->orWhere('deskripsi', 'like', "%$query%")
+                                ->orWhere('lokasi', 'like', "%$query%");
+                })
+                ->paginate(10);  // Menampilkan hasil pencarian dengan pagination
+        } else {
+            // Jika tidak ada query, tampilkan semua album
+            $albums = Album::where('userID', Auth::id())->paginate(10);
+        }
+    
+        return view('albums.index', compact('albums'));  // Kirim data album ke view
     }
+    
 
     /**
      * Show the form for creating a new resource.

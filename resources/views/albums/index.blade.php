@@ -7,6 +7,10 @@
         <a href="{{ route('albums.create') }}" class="btn btn-primary">
             Tambah Kegiatan
         </a>
+        <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
+            <input type="text" name="query" class="form-control" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
+            <button type="submit" class="btn btn-outline-secondary ms-2">Cari</button>
+        </form>
     </div>
     <div class="table-responsive">
         <table class="table table-striped table-hover"> 
