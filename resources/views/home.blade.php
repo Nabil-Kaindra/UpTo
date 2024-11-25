@@ -48,19 +48,22 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    let currentPage = 1; // Halaman awal
-    let lastPage = {{ $albums->lastPage() }}; // Total halaman
+let currentPage = 1; // Halaman awal
+let lastPage = {{ $albums->lastPage() }}; // Total halaman
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-            if (currentPage < lastPage) {
+$(window).scroll(function() {
+    if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        if (currentPage < lastPage) {
+            // Show confirmation dialog before loading the new page
+            if (confirm("Apakah Anda yakin ingin pindah ke halaman berikutnya?")) {
                 currentPage++;
                 loadNewPage(currentPage);
             }
         }
-    });
+    }
+});
 
-    function loadNewPage(page) {
+function loadNewPage(page) {
     $('#loader').show();
 
     $.ajax({
@@ -69,8 +72,6 @@
         success: function(data) {
             // Ganti seluruh konten album dengan halaman baru
             $('#album-container').html($(data).find('#album-container').html());
-
-            
 
             // Perbarui URL di browser
             const newUrl = "{{ route('home') }}" + "?page=" + page;
@@ -87,9 +88,6 @@
     });
 }
 
-    
-        // Gulirkan layar ke bagian atas
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     
 </script>
 
