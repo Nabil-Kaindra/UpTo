@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-
-
 <div class="container mt-5">
     <h2 class="text-center mb-4">Daftar Dokumentasi Kegiatan</h2>
     <div class="d-flex justify-content-end mb-3">
@@ -23,19 +21,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($albums as $album)
+                @forelse($albums as $album)
                 <tr>
-            <td class="text-center">
-                @if ($album->photos->isNotEmpty() && $album->photos->first()?->lokasiFile)
-                    <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
-                    alt="{{ $album->judulAlbum }}"
-                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
-                @else
-                <img src="{{ asset('storage/default.jpg') }}"
-                    alt="No Photo Has Been Uploaded"
-                    style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
-                @endif
-            </td>
+                    <td class="text-center">
+                        @if ($album->photos->isNotEmpty() && $album->photos->first()?->lokasiFile)
+                            <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
+                            alt="{{ $album->judulAlbum }}"
+                            style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                        @else
+                            <img src="{{ asset('storage/default.jpg') }}"
+                                alt="No Photo Has Been Uploaded"
+                                style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                        @endif
+                    </td>
 
                     <td class="text-center">
                         <a href="{{ route('albums.photos', $album->albumID) }}">
@@ -60,7 +58,11 @@
                         </div>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="6" class="text-center">Tidak ada data</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

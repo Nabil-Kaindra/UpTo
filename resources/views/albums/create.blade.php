@@ -6,7 +6,7 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Buat Album Baru</h2>
     <div class="card shadow-sm p-4">
-        <form action="{{ route('albums.store') }}" method="POST">
+        <form action="{{ route('albums.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="namaAlbum" class="form-label">Judul Kegiatan</label>

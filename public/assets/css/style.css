@@ -7,6 +7,7 @@ table {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     text-align: center;
+    transition: box-shadow 0.3s ease;
 }
 
 th, td {
@@ -14,10 +15,12 @@ th, td {
     padding: 8px;
     background-color: #DFF2EB;
     text-align: center;
+    vertical-align: middle;
 }
 
 th {
     background-color: #7AB2D3;
+    font-weight: bold;
 }
 
 table tr:hover {
@@ -34,21 +37,26 @@ body {
     background-attachment: fixed;
     font-family: Arial, sans-serif;
     padding-top: 70px;
+    line-height: 1.6;
 }
 
 /* Navbar Style */
 .navbar-brand img {
     max-height: 50px !important; 
     width: auto !important;
+    margin: 0 auto;
 }
 
 .nav-bar a {
     padding: 5px 10px;
     font-size: 16px;
+    text-decoration: none;
+    color: #333;
 }
 
 .nav-bar .profile-link i {
     font-size: 20px;
+    margin-right: 5px;
 }
 
 /* Card Style */
@@ -58,6 +66,7 @@ body {
     transition: transform 0.3s ease;
     background-color: white;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .card:hover {
@@ -69,17 +78,20 @@ body {
     border-radius: 15px 15px 0 0;
     height: 250px;
     object-fit: cover;
+    width: 100%;
 }
 
 .card-title {
     font-weight: bold;
     color: #333;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .card-text {
     color: #666;
     text-align: center; 
+    margin-bottom: 20px;
 }
 
 /* Fixed Card */
@@ -92,6 +104,7 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .fixed-image {
@@ -105,6 +118,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 20px;
 }
 
 /* Responsive Styling */
@@ -143,6 +157,7 @@ body {
     aspect-ratio: 1 / 1;
     background-color: #f0f0f0;
     transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .photo-item:hover {

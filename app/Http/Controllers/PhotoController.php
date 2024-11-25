@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Session;
 class PhotoController extends Controller {
 
     public function index(Album $album) {
-        $photos = $album->photos()->paginate(4);
-        return view('photos.index', compact('album', 'photos'));
+        $photos = Photo::where('albumID', $album->albumID)->paginate(4);
+        return view('photos.index', compact('album', 'photos'));    
     }
 
     public function create() {
@@ -21,29 +21,33 @@ class PhotoController extends Controller {
         return view('photos.create', compact('albums'));
     }
 
-    public function store(Request $request) {
+public function store(Request $request)
+{
+    $request->validate([
+        'photos.*' => 'required|image|max:2048',
+        'judulFoto.*' => 'required|string|max:255',
+        'albumID' => 'required|exists:albums,albumID',
+    ]);
 
-        $request->validate([
+    $files = $request->file('photos');
+    $judulFotos = $request->judulFoto;
 
-            'photo' => 'required|image|max:2048',
-            'judulFoto' => 'required|string|max:255',
-            'albumID' => 'required|exists:albums,albumID',
-        ]);
-
-        $photo = $request->file('photo');
-        $path = $photo-> store('photos', 'public');
+    foreach ($files as $index => $photo) {
+        $path = $photo->store('photos', 'public');
 
         Photo::create([
             'userID' => auth()->id(),
             'lokasiFile' => $path,
-            'judulFoto' => $request->judulFoto,
+            'judulFoto' => $judulFotos[$index],
             'tanggalUnggah' => now(),
             'albumID' => $request->albumID,
         ]);
-
-        return redirect()->route('albums.photos', ['album' => $request->albumID])
-        ->with('success', 'Foto berhasil diunggah!');
     }
+
+    return redirect()->route('albums.photos', ['album' => $request->albumID])
+        ->with('success', 'Semua foto berhasil diunggah!');
+}
+
 
     public function show(Photo $photo) {
 

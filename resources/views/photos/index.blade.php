@@ -13,7 +13,7 @@
         <!--Bagian Kiri Yang Berisi Foto Dari Kegiatan-->
         <div class="col-md-6">
             <div class="row row-cols-2 g-3">
-                @foreach($photos as $photo)
+                @forelse($photos as $photo)
                     <div class="col">
                         <div class="card shadow-sm">
                             <a href="{{ route('photos.edit', $photo->fotoID) }}">
@@ -27,7 +27,11 @@
                             </a>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-12 text-center">
+                        <p class="text-muted">No photos available.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
 
@@ -47,9 +51,11 @@
             </div>
 
             <!--Tombol Pagination Jika Foto Di Kegiatan Atau Album Lebih Dari 4 Foto-->
-            <div class="d-flex justify-content-end ">
-                {{ $photos->links() }}
-            </div>
+            @if($photos->count() > 4)
+                <div class="d-flex justify-content-end ">
+                    {{ $photos->links() }}
+                </div>
+            @endif
         </div>
     </div>
 </div>
