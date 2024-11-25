@@ -29,7 +29,7 @@
                     </div>
                 @empty
                     <div class="col-12 text-center">
-                        <p class="text-muted">No photos available.</p>
+                        <p class="text-muted">Tidak ada foto yang tersedia.</p>
                     </div>
                 @endforelse
             </div>
@@ -50,9 +50,9 @@
                 </div>
             </div>
 
-            <!--Tombol Pagination Jika Foto Di Kegiatan Atau Album Lebih Dari 4 Foto-->
-            @if($photos->count() > 4)
-                <div class="d-flex justify-content-end ">
+            <!--Tombol Pagination Jika Foto Di Album Lebih Dari 4 Foto-->
+            @if($photos->hasPages())
+                <div class="d-flex justify-content-end mt-3">
                     {{ $photos->links() }}
                 </div>
             @endif

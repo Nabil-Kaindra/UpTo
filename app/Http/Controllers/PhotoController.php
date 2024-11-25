@@ -13,7 +13,7 @@ class PhotoController extends Controller {
 
     public function index(Album $album) {
         $photos = Photo::where('albumID', $album->albumID)->paginate(4);
-        return view('photos.index', compact('album', 'photos'));    
+        return view('photos.index', compact('album', 'photos'));  
     }
 
     public function create() {
