@@ -181,3 +181,9 @@ body {
     margin: 10px 0;
     font-size: 14px;
 }
+
+#loader {
+    margin-top: 200px;  /* Memberikan jarak 50px antara loader dan album terakhir */
+    text-align: center;
+    display: none;
+}
