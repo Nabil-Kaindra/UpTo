@@ -24,7 +24,7 @@ class HomeController extends Controller {
         } else {
             $albums = Album::with(['photos' => function($query) {
                 $query->limit(1);
-            }])->paginate(12); 
+            }])->paginate(8); 
         }
 
         $photos = Photo::paginate(16);
