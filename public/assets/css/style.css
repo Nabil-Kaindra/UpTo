@@ -59,6 +59,12 @@ body {
     margin-right: 5px;
 }
 
+.navbar-brand span {
+    font-size: 20px;
+    color: #6c757d; 
+    font-weight: 600; 
+}
+
 /* Card Style */
 .card {
     border-radius: 15px;
@@ -131,6 +137,16 @@ body {
     }
     .card-img-top {
         height: 200px;
+    }
+    form.d-flex {
+        flex-direction: column;
+        gap: 10px; 
+    }
+    .navbar-brand i {
+        margin-top: 5px;
+    }
+    .navbar-brand img {
+        max-height: 30px; 
     }
 }
 

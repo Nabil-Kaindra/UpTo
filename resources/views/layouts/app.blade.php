@@ -19,19 +19,23 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
-    <a class="navbar-brand mx-auto" href="{{ route('home') }}">
-        <img src="{{ asset('images/nav-logo.png') }}" alt="Logo" height="40">
+    <a class="navbar-brand mx-auto d-flex flex-column align-items-center" href="{{ route('home') }}">
+        <img src="{{ asset('images/nav-logo.png') }}" alt="Logo" class="img-fluid" style="max-height: 40px;">
+        <span class="mt-1" style="font-size: 17px;">Dokumentasi Kegiatan</span>
     </a>
+
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <form class="d-flex mx-auto" action="{{ route('photos.search') }}" method="GET" style="width: 50%;">
+            <form class="d-flex mx-auto flex-grow-1 flex-md-nowrap" action="{{ route('photos.search') }}" method="GET" style="max-width: 500px;">
                 <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
+                <button class="btn btn-outline-primary" type="submit">Cari</button>
             </form>
+
+
             <ul class="navbar-nav ms-auto">
                 @if(Auth::check())
                     <li class="nav-item">
@@ -42,9 +46,10 @@
                     </li>
                 @endif
             </ul>
-            <a href="{{ route('profile.index') }}" class="navbar-brand ms-3">
-                <i class="fas fa-user"></i>
+            <a href="{{ route('profile.index') }}" class="navbar-brand ms-3 d-flex align-items-center">
+                <i class="fas fa-user fa-lg"></i>
             </a>
+
         </div>
     </div>
 </nav>

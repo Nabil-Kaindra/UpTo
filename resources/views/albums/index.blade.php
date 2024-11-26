@@ -3,15 +3,17 @@
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Daftar Dokumentasi Kegiatan</h2>
-    <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('albums.create') }}" class="btn btn-primary">
-            Tambah Kegiatan
-        </a>
+    <div class="d-flex justify-content-between mb-3">
+    <div>
         <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
             <input type="text" name="query" class="form-control" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
             <button type="submit" class="btn btn-outline-secondary ms-2">Cari</button>
         </form>
     </div>
+    <a href="{{ route('albums.create') }}" class="btn btn-primary">
+        Tambah Kegiatan
+    </a>
+</div>
     <div class="table-responsive">
         <table class="table table-striped table-hover"> 
             <thead class="table-dark">
