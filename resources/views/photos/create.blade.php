@@ -33,30 +33,35 @@
 </div>
 
 <script>
-    document.getElementById('photos').addEventListener('change', function (e) {
-        const container = document.getElementById('judul-container');
-        container.innerHTML = ''; // Hapus input judul sebelumnya
+document.getElementById('photos').addEventListener('change', function (e) {
+    const container = document.getElementById('judul-container');
+    container.innerHTML = ''; // Hapus input judul sebelumnya
 
-        Array.from(e.target.files).forEach((file, index) => {
-            const div = document.createElement('div');
-            div.className = 'mb-3';
+    Array.from(e.target.files).forEach((file, index) => {
+        const div = document.createElement('div');
+        div.className = 'mb-3';
 
-            const label = document.createElement('label');
-            label.setAttribute('for', `judulFoto-${index}`);
-            label.className = 'form-label';
-            label.textContent = `Judul Foto (${file.name}):`;
+        const label = document.createElement('label');
+        label.setAttribute('for', `judulFoto-${index}`);
+        label.className = 'form-label';
 
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.className = 'form-control';
-            input.id = `judulFoto-${index}`;
-            input.name = 'judulFoto[]';
+        // Mengambil nama file dan mengubahnya menjadi format yang lebih baik untuk judul
+        const fileNameWithoutExt = file.name.split('.').slice(0, -1).join('.'); // Menghapus ekstensi
+        label.textContent = `Nama File (${fileNameWithoutExt}):`;
 
-            div.appendChild(label);
-            div.appendChild(input);
-            container.appendChild(div);
-        });
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'form-control';
+        input.id = `judulFoto-${index}`;
+        input.name = 'judulFoto[]';
+        input.value = fileNameWithoutExt; // Set judul input sesuai dengan nama file
+
+        div.appendChild(label);
+        div.appendChild(input);
+        container.appendChild(div);
     });
+});
+
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

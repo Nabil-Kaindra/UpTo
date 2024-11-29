@@ -44,8 +44,7 @@ public function store(Request $request)
         ]);
     }
 
-    return redirect()->route('albums.photos', ['album' => $request->albumID])
-        ->with('success', 'Semua foto berhasil diunggah!');
+    return redirect()->route('albums.photos', ['album' => $request->albumID]);
 }
 
 
