@@ -128,16 +128,24 @@ body {
 }
 
 /* Responsive Styling */
-@media (max-width: 768px) {
-    .card {
-        margin-bottom: 20px;
-    }
+@media (max-width: 576px) {
     .fixed-card {
-        min-height: 400px;
+        max-width: 200px; /* Atur lebar maksimum */
+        margin: 0 auto; /* Tengah jika card jadi kecil */
     }
-    .card-img-top {
-        height: 200px;
+
+    .fixed-image {
+        height: 200px !important; /* Sesuaikan tinggi gambar */
     }
+
+    .card-title {
+        font-size: 14px; /* Perkecil ukuran teks judul */
+    }
+
+    .card-text {
+        font-size: 12px; /* Perkecil ukuran teks deskripsi */
+    }
+
     form.d-flex {
         flex-direction: column;
         gap: 10px; 

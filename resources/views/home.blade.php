@@ -11,9 +11,9 @@
         @else
             <div class="row" id="album-list">
                 @foreach($albums as $album)
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <a href="{{ route('albums.photos', $album->albumID) }}" class="text-decoration-none text-dark">
-                        <div class="card fixed-card h-100 shadow-sm">
+                        <div class="card fixed-card h-50 shadow-sm">
                             @if($album->photos->isNotEmpty())
                                 <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
                                     alt="{{ $album->judulAlbum }}" 

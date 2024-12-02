@@ -18,13 +18,13 @@ class HomeController extends Controller {
             }])
             ->where('namaAlbum', 'LIKE', '%' . $searchQuery . '%')
             ->orWhere('deskripsi', 'LIKE', '%' . $searchQuery . '%')
-            ->paginate(8);
+            ->paginate(12);
 
             $request->session()->forget('search_query');
         } else {
             $albums = Album::with(['photos' => function($query) {
                 $query->limit(1);
-            }])->paginate(8); 
+            }])->paginate(12); 
         }
 
         $photos = Photo::paginate(16);
