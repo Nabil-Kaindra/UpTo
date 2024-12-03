@@ -4,28 +4,43 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Daftar Dokumentasi Kegiatan</h2>
     <div class="d-flex justify-content-between mb-3">
-    <div>
-        <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
-            <input type="text" name="query" class="form-control" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
-            <button type="submit" class="btn btn-outline-secondary ms-2">Cari</button>
-        </form>
+        <div>
+            <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
+                <input type="text" name="query" class="form-control" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
+                <button type="submit" class="btn btn-outline-secondary ms-2">Cari</button>
+            </form>
+        </div>
+        <a href="{{ route('albums.create') }}" class="btn btn-primary">
+            Tambah Kegiatan
+        </a>
     </div>
-    <a href="{{ route('albums.create') }}" class="btn btn-primary">
-        Tambah Kegiatan
-    </a>
-</div>
     <div class="table-responsive">
         <table class="table table-striped table-hover"> 
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">Foto</th>
-                    <th class="text-center">Judul Kegiatan</th>
+                    <th class="text-center">
+                        <a href="{{ route('albums.index', ['sort_by' => 'namaAlbum', 'sort_order' => request('sort_order') === 'asc' ? 'desc' : 'asc']) }}" class="text-white text-decoration-none">
+                            Judul Kegiatan
+                            @if(request('sort_by') === 'namaAlbum')
+                                <i class="ms-1 bi bi-arrow-{{ request('sort_order') === 'asc' ? 'down' : 'up' }}"></i>
+                            @endif
+                        </a>
+                    </th>
                     <th class="text-center">Deskripsi</th>
                     <th class="text-center">Lokasi</th>
-                    <th class="text-center">Tanggal Kegiatan</th>
+                    <th class="text-center">
+                        <a href="{{ route('albums.index', ['sort_by' => 'tanggalDibuat', 'sort_order' => request('sort_order') === 'asc' ? 'desc' : 'asc']) }}" class="text-white text-decoration-none">
+                            Tanggal Kegiatan
+                            @if(request('sort_by') === 'tanggalDibuat')
+                                <i class="ms-1 bi bi-arrow-{{ request('sort_order') === 'asc' ? 'down' : 'up' }}"></i>
+                            @endif
+                        </a>
+                    </th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
+
             <tbody>
                 @forelse($albums as $album)
                 <tr>
