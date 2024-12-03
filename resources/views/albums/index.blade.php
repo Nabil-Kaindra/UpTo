@@ -3,44 +3,47 @@
 
 <div class="container mt-5">
     <h2 class="text-center mb-4">Daftar Dokumentasi Kegiatan</h2>
-    <div class="d-flex justify-content-between mb-3">
-        <div>
-            <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
-                <input type="text" name="query" class="form-control" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
-                <button type="submit" class="btn btn-outline-secondary ms-2">Cari</button>
-            </form>
-        </div>
-        <a href="{{ route('albums.create') }}" class="btn btn-primary">
+    
+    <!-- Top section: Search and Add button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <!-- Search Form -->
+        <form action="{{ route('albums.index') }}" method="GET" class="d-flex align-items-center w-25">
+            <input type="text" name="query" class="form-control form-control-sm" placeholder="Cari Kegiatan" value="{{ request()->query('query') }}">
+            <button type="submit" class="btn btn-outline-secondary btn-sm ms-2">
+                Cari
+            </button>
+        </form>
+
+        <!-- Add New Activity Button -->
+        <a href="{{ route('albums.create') }}" class="btn btn-primary btn-lg ms-3">
             Tambah Kegiatan
         </a>
     </div>
+
     <div class="table-responsive">
+    <!-- Sort Dropdown moved to top-right corner of the table -->
+    <div class="d-flex justify-content-end mb-3">
+        <form action="{{ route('albums.index') }}" method="GET" class="d-flex">
+            <select name="sort_by" class="form-select form-select-sm" onchange="this.form.submit()">
+                <option value="date_asc" {{ request()->query('sort_by') == 'date_asc' ? 'selected' : '' }}>Tanggal (↑)</option>
+                <option value="date_desc" {{ request()->query('sort_by') == 'date_desc' ? 'selected' : '' }}>Tanggal (↓)</option>
+                <option value="title_asc" {{ request()->query('sort_by') == 'title_asc' ? 'selected' : '' }}>Judul (A-Z)</option>
+                <option value="title_desc" {{ request()->query('sort_by') == 'title_desc' ? 'selected' : '' }}>Judul (Z-A)</option>
+            </select>
+        </form>
+    </div>
+    <!-- Table to display albums -->
         <table class="table table-striped table-hover"> 
             <thead class="table-dark">
                 <tr>
                     <th class="text-center">Foto</th>
-                    <th class="text-center">
-                        <a href="{{ route('albums.index', ['sort_by' => 'namaAlbum', 'sort_order' => request('sort_order') === 'asc' ? 'desc' : 'asc']) }}" class="text-white text-decoration-none">
-                            Judul Kegiatan
-                            @if(request('sort_by') === 'namaAlbum')
-                                <i class="ms-1 bi bi-arrow-{{ request('sort_order') === 'asc' ? 'down' : 'up' }}"></i>
-                            @endif
-                        </a>
-                    </th>
+                    <th class="text-center">Judul Kegiatan</th>
                     <th class="text-center">Deskripsi</th>
                     <th class="text-center">Lokasi</th>
-                    <th class="text-center">
-                        <a href="{{ route('albums.index', ['sort_by' => 'tanggalDibuat', 'sort_order' => request('sort_order') === 'asc' ? 'desc' : 'asc']) }}" class="text-white text-decoration-none">
-                            Tanggal Kegiatan
-                            @if(request('sort_by') === 'tanggalDibuat')
-                                <i class="ms-1 bi bi-arrow-{{ request('sort_order') === 'asc' ? 'down' : 'up' }}"></i>
-                            @endif
-                        </a>
-                    </th>
+                    <th class="text-center">Tanggal Kegiatan</th>
                     <th class="text-center">Aksi</th>
                 </tr>
             </thead>
-
             <tbody>
                 @forelse($albums as $album)
                 <tr>
@@ -48,16 +51,16 @@
                         @if ($album->photos->isNotEmpty() && $album->photos->first()?->lokasiFile)
                             <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
                             alt="{{ $album->judulAlbum }}"
-                            style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                            class="img-fluid" style="max-width: 150px; height: auto;">
                         @else
                             <img src="{{ asset('storage/default.jpg') }}"
                                 alt="No Photo Has Been Uploaded"
-                                style="width: 200px; aspect-ratio: 1/1; object-fit: cover;">
+                                class="img-fluid" style="max-width: 150px; height: auto;">
                         @endif
                     </td>
 
                     <td class="text-center">
-                        <a href="{{ route('albums.photos', $album->albumID) }}">
+                        <a href="{{ route('albums.photos', $album->albumID) }}" class="text-decoration-none text-dark">
                             {{ $album->namaAlbum }}
                         </a>
                     </td>
@@ -87,6 +90,7 @@
             </tbody>
         </table>
     </div>
+
     <!-- Pagination -->
     <div class="d-flex justify-content-center mt-4">
         {{ $albums->links() }}

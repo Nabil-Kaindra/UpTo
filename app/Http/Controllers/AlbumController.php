@@ -14,37 +14,31 @@ class AlbumController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->input('query');
-        $tanggal = $request->input('tanggal');
-        $hurufAwal = $request->input('huruf_awal');
-        $sortBy = $request->input('sort_by', 'namaAlbum'); // Default sorting by name
-        $sortOrder = $request->input('sort_order', 'asc'); // Default sorting order is ascending
+        $query = $request->query('query');
+        $sortBy = $request->query('sort_by');
     
-        $albums = Album::where('userID', Auth::id());
+        $albums = Album::query()
+            ->when($query, function ($queryBuilder) use ($query) {
+                return $queryBuilder->where('namaAlbum', 'like', "%$query%")
+                                    ->orWhere('deskripsi', 'like', "%$query%");
+            })
+            ->when($sortBy, function ($queryBuilder) use ($sortBy) {
+                switch ($sortBy) {
+                    case 'date_asc':
+                        return $queryBuilder->orderBy('tanggalDibuat', 'asc');
+                    case 'date_desc':
+                        return $queryBuilder->orderBy('tanggalDibuat', 'desc');
+                    case 'title_asc':
+                        return $queryBuilder->orderBy('namaAlbum', 'asc');
+                    case 'title_desc':
+                        return $queryBuilder->orderBy('namaAlbum', 'desc');
+                }
+            })
+            ->paginate(16);
     
-        if ($query) {
-            $albums->where(function ($queryBuilder) use ($query) {
-                $queryBuilder->where('namaAlbum', 'like', "%$query%")
-                            ->orWhere('deskripsi', 'like', "%$query%")
-                            ->orWhere('lokasi', 'like', "%$query%");
-            });
-        }
-    
-        if ($tanggal) {
-            $albums->whereDate('tanggalDibuat', $tanggal);
-        }
-    
-        if ($hurufAwal) {
-            $albums->where('namaAlbum', 'like', "$hurufAwal%");
-        }
-    
-        // Apply sorting
-        $albums->orderBy($sortBy, $sortOrder);
-    
-        $albums = $albums->paginate(10);
-    
-        return view('albums.index', compact('albums', 'sortBy', 'sortOrder'));
+        return view('albums.index', compact('albums'));
     }
+    
     
     
 
