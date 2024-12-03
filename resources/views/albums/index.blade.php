@@ -72,13 +72,13 @@
                     <td class="text-center">
                         <div class="d-flex gap-2 justify-content-center">
                             <a href="{{ route('albums.edit', $album->albumID) }}" class="btn btn-sm btn-warning">
-                                Edit
+                            <i class="bi bi-pencil"></i> Edit
                             </a>
                             <form action="{{ route('albums.destroy', $album->albumID) }}" method="POST" onsubmit="return confirm('Tindakan ini tidak bisa dibatalkan');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">
-                                    Hapus
+                                    <i class="bi bi-trash"></i> Hapus
                                 </button>
                             </form>
                         </div>
