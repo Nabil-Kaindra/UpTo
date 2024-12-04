@@ -67,12 +67,13 @@
                 </div>
             </div>
         </div>
-        <!--Tombol Pagination Jika Foto Di Album Lebih Dari 4 Foto-->
-            @if($photos->hasPages())
-                <div class="d-flex justify-content-end mt-3">
-                    {{ $photos->links() }}
-                </div>
-            @endif
+        <!--Tombol Pagination Jika Foto Di Album Lebih Dari 4 Foto
+        @if($photos->hasPages())
+        <div class="d-flex justify-content-end mt-3">
+            {{ $photos->links() }}
+        </div>
+        @endif
+        -->
     </div>
 </div>
 @endsection
