@@ -26,10 +26,6 @@
                 <input type="time" class="form-control" name="waktu" id="waktu" required>
             </div>
             <div class="mb-3">
-                <label for="uraian" class="form-label">Uraian</label>
-                <input type="text" class="form-control" name="uraian" id="uraian" required>
-            </div>
-            <div class="mb-3">
                 <label for="deskripsi" class="form-label">Deskripsi Kegiatan</label>
                 <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" maxlength="150"></textarea>
                 <small class="form-text text-muted">Maksimum 150 karakter.</small>

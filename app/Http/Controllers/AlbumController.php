@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\ImageOptimizer\OptimizerChainFactory;
 use Illuminate\Http\Request;
 use App\Models\Album;
 use App\Models\Photo; // Import model Photo
@@ -62,8 +63,7 @@ class AlbumController extends Controller
         'lokasi' => 'required|string|max:255',
         'tanggalDibuat' => 'required|date',
         'waktu' => 'required|date_format:H:i',
-        'uraian' => 'required|string|max:255',
-        'photos.*' => 'required|image|max:2048', // Validasi foto (jika ada)
+        'photos.*' => 'required|image|max:10240', // Validasi foto (jika ada)
         'judulFoto.*' => 'required|string|max:255', // Validasi judul foto (jika ada)
     ]);
 
@@ -73,7 +73,6 @@ class AlbumController extends Controller
         'deskripsi' => $request->deskripsi,
         'lokasi' => $request->lokasi,
         'waktu' => $request->waktu,
-        'uraian' => $request->uraian,
         'tanggalDibuat' => $request->tanggalDibuat,
         'userID' => Auth::id(),
     ]);
@@ -87,6 +86,10 @@ class AlbumController extends Controller
         foreach ($files as $index => $photo) {
             // Menyimpan foto dan mendapatkan path
             $path = $photo->store('photos', 'public');
+
+            // Optimize the image
+            $optimizerChain = OptimizerChainFactory::create();
+            $optimizerChain->optimize(storage_path("app/public/{$path}"));
 
             // Menambahkan foto ke album
             Photo::create([
@@ -136,7 +139,6 @@ class AlbumController extends Controller
             'namaAlbum' => 'required|string|max:255',
             'deskripsi' => 'required|string|max:150',
             'lokasi' => 'required|string|max:255',
-            'uraian' => 'required|string|max:255',
         ]);
         $album->update([
             'namaAlbum' => $request->namaAlbum,
@@ -144,7 +146,6 @@ class AlbumController extends Controller
             'lokasi' => $request->lokasi,
             'tanggalDibuat' => $request->tanggalDibuat,
             'waktu' => $request->waktu,
-            'uraian' => $request->uraian,
         ]); 
             return redirect()->route('albums.index');
     }

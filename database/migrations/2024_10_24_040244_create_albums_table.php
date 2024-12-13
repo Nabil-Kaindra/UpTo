@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('deskripsi')->nullable();
             $table->text('lokasi')->nullable();
             $table->time('waktu')->nullable();
-            $table->text('uraian')->nullable();
             $table->date('tanggalDibuat');
             $table->foreignId('userID')
                 ->constrained('users', 'userID')->onDelete('cascade');

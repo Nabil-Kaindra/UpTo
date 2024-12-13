@@ -11,7 +11,6 @@ class Album extends Model{
         'deskripsi',
         'waktu',
         'lokasi',
-        'uraian',
         'userID',
         'tanggalDibuat'
     ];

@@ -13,19 +13,20 @@
                 @foreach($albums as $album)
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <a href="{{ route('albums.photos', $album->albumID) }}" class="text-decoration-none text-dark">
-                        <div class="card fixed-card h-50 shadow-sm">
+                        <div class="card fixed-card shadow-sm">
                             @if($album->photos->isNotEmpty())
                                 <img src="{{ asset('storage/' . $album->photos->first()->lokasiFile) }}" 
                                     alt="{{ $album->judulAlbum }}" 
-                                    class="card-img-top fixed-image" style="object-fit: cover; height: 200px;">
+                                    class="card-img-top fixed-image">
                             @else
                                 <img src="{{ asset('images/default-album.png') }}"
                                     alt="No image available"
-                                    class="card-img-top fixed-image" style="object-fit: cover; height: 200px;">
+                                    class="card-img-top fixed-image">
                             @endif
                             <div class="card-body text-center">
-                                <h5 class="card-title font-weight-bold">{{ $album->namaAlbum }}</h5>
-                                <p class="card-text text-muted">{{ Str::limit($album->deskripsi, 70) }}</p>
+                                <h5 class="card-title">{{ Str::limit($album->namaAlbum, 20) }}</h5>
+                                <p class="card-text text-truncate" style="max-height: 4.5em; overflow: hidden;">
+                                    {{ Str::limit($album->deskripsi, 80) }}</p>
                                 <p><small class="text-muted">
                                     {{ $album->tanggalDibuat ? \Carbon\Carbon::parse
                                     ($album->tanggalDibuat)->format('d M Y') : 'Tanggal tidak tersedia' }}
@@ -36,7 +37,7 @@
                 </div>
                 @endforeach
             </div>
-            <!-- Pagination-->
+            <!-- Pagination -->
             <div class="d-flex justify-content-center mt-4">
                 {{ $albums->links() }}
             </div>

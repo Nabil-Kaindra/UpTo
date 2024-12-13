@@ -88,7 +88,8 @@ body {
 }
 
 .card-title {
-    font-weight: bold;
+    font-weight: normal;
+    font-size: x-large;
     color: #333;
     text-align: center;
     margin-bottom: 10px;
@@ -102,48 +103,50 @@ body {
 
 /* Fixed Card */
 .fixed-card {
-    width: 100%;
-    min-height: 450px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
 }
 
 .fixed-image {
-    width: 100%;
-    height: 200px;
     object-fit: cover;
+    height: 200px;
+    width: 100%;
 }
 
 .card-body {
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
 }
+
 
 /* Responsive Styling */
 @media (max-width: 576px) {
+    .col-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
     .fixed-card {
-        max-width: 200px; /* Atur lebar maksimum */
-        margin: 0 auto; /* Tengah jika card jadi kecil */
+        height: auto;
     }
 
     .fixed-image {
-        height: 200px !important; /* Sesuaikan tinggi gambar */
+        height: 150px;
     }
 
     .card-title {
-        font-size: 14px; /* Perkecil ukuran teks judul */
+        font-size: 1rem;
     }
 
     .card-text {
-        font-size: 12px; /* Perkecil ukuran teks deskripsi */
+        font-size: 0.9rem;
+    }
+
+    .mb-4 {
+        margin-bottom: 1rem !important;
     }
 
     form.d-flex {
